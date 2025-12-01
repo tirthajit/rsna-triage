@@ -28,12 +28,14 @@ Download from Kaggle:
 https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection
 
 Expected layout:
+```bash
 data/
 └── raw/
 └── rsna-ich/
 ├── stage_2_train/
 ├── train.csv
 └── ... (DICOMs)
+```
 
 We follow standard clinical preprocessing:
 - Convert pixel values to **Hounsfield Units (HU)**
@@ -56,7 +58,8 @@ This performs:
 - Calibration (val → calibrated test probabilities)
 - Worklist simulation (FIFO vs Priority)
 
-🗂️ Directory Structure
+## 🗂️ Directory Structure
+```bash
 RSNA-Triage/
 ├── configs/
 │   ├── data.yaml
@@ -71,8 +74,9 @@ RSNA-Triage/
 ├── run_pipeline.sh
 ├── README.md
 └── outputs/        # populated after running the pipeline
+```
 
-⚙️ Running Individual Steps
+## ⚙️ Running Individual Steps
 1. Preprocess DICOMs
 ```bash
 python -m src.preprocess --config configs/data.yaml
@@ -100,13 +104,13 @@ Outputs:
 * outputs/simulation_results.csv
 * outputs/figures/
 
-🔬 Reproducibility
+## 🔬 Reproducibility
 * All splits are exam-level (no patient leakage)
 * YAML configs control every step
 * Seed control ensures deterministic runs
 * Simulation is repeated over 100 independent sessions to estimate variance
 
-📄 Citation
+## 📄 Citation
 If this repository helps your research, please cite:
 ```bash
 @inproceedings{
@@ -119,7 +123,7 @@ url={https://openreview.net/forum?id=OBR8CAFu9s}
 }
 ```
 
-📬 Contact
+## 📬 Contact
 If you have any questions, need clarification, or would like to collaborate, please don't hesitate to reach out.
----
+
 This repository aims to provide a transparent, reproducible, and deployment-focused framework for evaluating AI-based triage policies in radiology workflows.
