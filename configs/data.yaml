@@ -4,8 +4,8 @@ PROCESSED_DIR: "data/processed/rsna-ich"
 IMG_SIZE: 224
 SEED: 1337
 
-# HU windows used in your experiments
 WINDOWS:
   brain:    {WL: 40,  WW: 80}
   subdural: {WL: 80,  WW: 200}
   bone:     {WL: 600, WW: 2800}
+
