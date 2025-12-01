@@ -19,10 +19,10 @@ Download the RSNA-ICH dataset from Kaggle:
 https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection
 
 Expected layout:
-data/raw/rsna-ich/
-stage_2_train/
-stage_2_test/
-train.csv
+* data/raw/rsna-ich/
+* stage_2_train/
+* stage_2_test/
+* train.csv
 
 ---
 
@@ -42,9 +42,9 @@ python src/calibrate.py --config configs/model.yaml
 python src/simulate.py --config configs/sim.yaml
 ```
 Outputs saved to:
-outputs/checkpoints/
-outputs/sims/
-outputs/figures/
+* outputs/checkpoints/
+* outputs/sims/
+* outputs/figures/
 
 ## Citation
 If you find this project useful for your research or if you use this implementation in your academic projects, please consider citing:
@@ -53,8 +53,9 @@ If you find this project useful for your research or if you use this implementat
 baruah2025translating,
 title={Translating Classifier Scores into Clinical Impact: Calibrated Risk and Queueing Simulation for {AI}-Assisted Radiology Worklist Triage},
 author={Tirthajit Baruah and Punit Rathore},
-booktitle={2rd AI for Medicine and Healthcare Bridge Program at AAAI26},
+booktitle={2nd AI for Medicine and Healthcare Bridge Program at AAAI26},
 year={2025},
 url={https://openreview.net/forum?id=OBR8CAFu9s}
 }
+
 ```
