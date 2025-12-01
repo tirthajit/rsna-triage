@@ -57,5 +57,5 @@ booktitle={2nd AI for Medicine and Healthcare Bridge Program at AAAI26},
 year={2025},
 url={https://openreview.net/forum?id=OBR8CAFu9s}
 }
-
 ```
+
