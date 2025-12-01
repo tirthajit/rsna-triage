@@ -28,28 +28,34 @@ def main():
     cfg = load_yaml("configs/model.yaml")
     set_seed(cfg["SEED"])
 
-    ds = RSNADataset("data/processed/rsna-ich/images", "data/processed/rsna-ich/labels.csv")
-    loader = DataLoader(ds, batch_size=cfg["BATCH_SIZE"], shuffle=True, num_workers=2)
+    base = "data/processed/rsna-ich"
+    train_csv = f"{base}/train.csv"
 
-    model = build_model(cfg["MODEL_NAME"], cfg["NUM_CLASSES"])
-    model = model.cuda()
+    train_ds = RSNADataset(f"{base}/images", train_csv)
+    train_loader = DataLoader(train_ds, batch_size=cfg["BATCH_SIZE"],
+                              shuffle=True, num_workers=2)
 
-    opt = torch.optim.Adam(model.parameters(), lr=cfg["LR"], weight_decay=cfg["WEIGHT_DECAY"])
+    model = build_model(cfg["MODEL_NAME"], cfg["NUM_CLASSES"]).cuda()
+    opt = torch.optim.Adam(model.parameters(), lr=cfg["LR"],
+                           weight_decay=cfg["WEIGHT_DECAY"])
     loss_fn = nn.BCEWithLogitsLoss()
 
-    ensure_dir(cfg["OUTPUT_DIR"] + "/checkpoints")
+    ckpt_dir = cfg["OUTPUT_DIR"] + "/checkpoints"
+    ensure_dir(ckpt_dir)
 
     for epoch in range(cfg["EPOCHS"]):
         model.train()
-        for x,y in tqdm(loader):
-            x,y = x.cuda(), y.cuda()
+        for x, y in tqdm(train_loader, desc=f"Epoch {epoch+1}/{cfg['EPOCHS']}"):
+            x, y = x.cuda(), y.cuda()
             opt.zero_grad()
-            logits = model(x)[:,0]
+            logits = model(x)[:, 0]
             loss = loss_fn(logits, y.squeeze())
             loss.backward()
             opt.step()
 
-    torch.save(model.state_dict(), cfg["OUTPUT_DIR"] + "/checkpoints/model.pt")
+    torch.save(model.state_dict(), f"{ckpt_dir}/model.pt")
+
 
 if __name__ == "__main__":
     main()
+
