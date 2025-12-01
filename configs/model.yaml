@@ -1,0 +1,11 @@
+PROCESSED_DIR: "data/processed/rsna-ich"
+OUTPUT_DIR: "outputs"
+MODEL_NAME: "efficientnet_b0"
+
+EPOCHS: 10
+BATCH_SIZE: 32
+LR: 1e-4
+WEIGHT_DECAY: 1e-5
+IMG_SIZE: 224
+SEED: 1337
+NUM_CLASSES: 6

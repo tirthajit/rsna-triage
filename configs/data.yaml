@@ -1,0 +1,10 @@
+RAW_DIR: "data/raw/rsna-ich"
+PROCESSED_DIR: "data/processed/rsna-ich"
+
+IMG_SIZE: 224
+SEED: 1337
+
+WINDOWS:
+  - {WL: 40,  WW: 80}     # brain
+  - {WL: 80,  WW: 200}    # subdural
+  - {WL: 600, WW: 2800}   # bone
