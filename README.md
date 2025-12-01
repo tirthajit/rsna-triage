@@ -112,7 +112,7 @@ Outputs:
 
 ## 📄 Citation
 If this repository helps your research, please cite:
-```bash
+```bibtex
 @inproceedings{
 baruah2025translating,
 title={Translating Classifier Scores into Clinical Impact: Calibrated Risk and Queueing Simulation for {AI}-Assisted Radiology Worklist Triage},
@@ -125,5 +125,5 @@ url={https://openreview.net/forum?id=OBR8CAFu9s}
 
 ## 📬 Contact
 If you have any questions, need clarification, or would like to collaborate, please don't hesitate to reach out.
-
 This repository aims to provide a transparent, reproducible, and deployment-focused framework for evaluating AI-based triage policies in radiology workflows.
+
